@@ -12,5 +12,18 @@ kbd{
     width: 2em;
     height: 2em;
     text-transform: uppercase;
-    /*文本全变大写*/
+    /*文本小写变大写*/
+}
+#mainxxxx{
+    display: inline-block;
+}
+main{
+    text-align: center;
+}
+/*mainxxx这个div居中*/
+#mainxxxx>div:nth-child(2){
+    margin-left: 1em;
+}
+#mainxxxx>div:nth-child(3){
+    margin-left: 2em;
 }

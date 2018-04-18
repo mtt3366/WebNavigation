@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>WebNavigation</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="herder" ></div>
-    <div class="main" id="mainxxxx"></div>
+    <main>
+        <div  id="mainxxxx"></div>
+    </main>
     <div class="footer"></div>
     <script>
         var keys = {
@@ -48,27 +50,39 @@
             'm':undefined
         };
 
+        //遍历keys,生成kbd标签
         var index = 0;
         while (index< keys['length']){
             var divxxxx = document.createElement('div');
             mainxxxx.appendChild(divxxxx);
 
             row = keys[index];
-
-
             index2 = 0;
+
             while (index2<row.length){
                 kbdxxxx = document.createElement("kbd");
                 kbdxxxx.textContent = row[index2];
                 divxxxx.appendChild(kbdxxxx);
-
                 index2++;
             }
-
-
             index++;
         }
 
+        //监听键盘被按事件
+        document.onkeypress = function (sjdhfakdhjlsdka) {
+
+            //sjdhfakdhjlsdka这个参数  包含你想要知道的所有信息,是一个hash
+            key = sjdhfakdhjlsdka['key'];//得到用户的键
+            website = hash[key];//获取网站地址
+
+            // location.href = 'http://'+website;//将键变成新的网站的地址
+            //location.href当前地址栏.地址
+            //
+
+            window.open('http://'+website,"_blank");
+            //window.open  窗口.打开  "_blank"新窗口打开.
+
+        }
     </script>
 </body>
 </html>
