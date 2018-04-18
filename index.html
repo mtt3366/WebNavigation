@@ -50,6 +50,12 @@
             'm':undefined
         };
 
+        //把localStorage里hash,zzz拿出来
+        var hashINLocalStorage = JSON.parse(localStorage.getItem('zzz')|| 'null');
+        if(hashINLocalStorage){ //如果hashINLocalStorage不为空,第二次刷新就不为空了.
+            hash = hashINLocalStorage;//覆盖hash
+        }
+
         //遍历keys,生成kbd标签
         var index = 0;
         while (index< keys['length']){
@@ -62,6 +68,44 @@
             while (index2<row.length){
                 kbdxxxx = document.createElement("kbd");
                 kbdxxxx.textContent = row[index2];
+
+                //每一个kbd里面加入button
+                buttonxx = document.createElement("button");
+                buttonxx.textContent = "编辑";
+                // 每一个button的id都是row[index2],即kbd里面的内容,以便区分
+                buttonxx.id = row[index2];
+                //添加button点击事件
+                buttonxx.onclick = function (jfglkhj) {
+                    //☆☆☆☆这里不能用this,也不能用buttonxx,因为buttonxx只是一个容器,每一次循环,里面放的东西都不一样
+                    // 最后他里面放的东西是最后那个createElement("button").所以不行
+                    //例如
+                    // console.log(buttonxx);
+                    // 不管按那个键,所有的打印出来的都是最后一个button
+                    //解决方法:使用 jfglkhj.target ,指的就是当前完整元素.
+                    // 例如:
+                    // console.log(jfglkhj);
+                    //console.log(jfglkhj.target);
+                    // console.log(jfglkhj.target.id);
+
+                    key = jfglkhj.target.id;//比如说v
+                    //或者jfglkhj['target']['id'];
+                    x = prompt('给我一个网址');//比如说mtt.com
+
+                    hash[key] = x;//赋值
+
+                    // 问题:刷新之后编辑的网址没有了
+                    // 解决方法:使用localStorage,只要变就备份,只要刷新就覆盖
+                    //如果hash变更,只要编辑了,我就存
+                    localStorage.setItem("zzz",JSON.stringify(hash));//JSON.stringify(hash)把hash变成字符串,存到zzz变量里备份
+
+                    //上面这句代码的作用:localStorage里有很多桶,吧hash存到zzz这个桶里
+                    //每一次编辑,就把新的hash存到  浏览器里
+                    //然后把这个浏览器里的hash覆盖原来的就可以了
+                    //熟悉原理:一变更就存档
+
+                };
+                kbdxxxx.appendChild(buttonxx);
+
                 divxxxx.appendChild(kbdxxxx);
                 index2++;
             }

@@ -9,10 +9,23 @@ kbd{
     display: inline-block;
     /*kbd默认是inline属性*/
     border: 1px solid red;
-    width: 2em;
-    height: 2em;
+    width: 4em;
+    height: 4em;
     text-transform: uppercase;
     /*文本小写变大写*/
+    position: relative;
+
+}
+kbd>button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+    /*绝对定位到右下角*/
+}
+kbd:hover>button{
+    display: inline-block;
+    /*鼠标浮到kbd上才出现*/
 }
 #mainxxxx{
     display: inline-block;
@@ -22,8 +35,8 @@ main{
 }
 /*mainxxx这个div居中*/
 #mainxxxx>div:nth-child(2){
-    margin-left: 1em;
+    margin-left: 2em;
 }
 #mainxxxx>div:nth-child(3){
-    margin-left: 2em;
+    margin-left: 4em;
 }
