@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    border: 0;
+}
+a{
+    text-decoration: none;
+}
+kbd{
+    display: inline-block;
+    /*kbd默认是inline属性*/
+    border: 1px solid red;
+    width: 2em;
+    height: 2em;
+    text-transform: uppercase;
+    /*文本全变大写*/
+}
