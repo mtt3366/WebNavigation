@@ -35,10 +35,10 @@ main{
 }
 /*mainxxx这个div居中*/
 #mainxxxx>div:nth-child(2){
-    margin-left: 2em;
+    margin-left: -30px;
 }
 #mainxxxx>div:nth-child(3){
-    margin-left: 4em;
+    margin-left: -112px;
 }
 /*美化按键*/
 /**/
@@ -49,8 +49,12 @@ main{
     border:0;
     width: 65px;
     height: 50px;
+
+    /*线性渐变:0-70白色,70-100,fff-f3f3f3渐变*/
     background: linear-gradient(to bottom, #fff 0%,#fff 70%,#f3f3f3 100%);
     border-radius: 7px;
+
+    /*下方阴影,box-shadow5个最常用属性,分别是左偏移,右偏移,模糊,扩张,颜色*/
     box-shadow: 0 5px 0 0 #D8DCDE;
     color: #767D81;
     font-family: Helvetical;
@@ -73,6 +77,7 @@ main{
     border-radius: 7px;
     margin: 0 5px;
 
+    /**/
     box-shadow: 0 4px 3px 0 #3C3C3D,0 0 1px 0 #3C3C3D;
     /*下,一圈*/
 }
@@ -87,4 +92,5 @@ html,body{
 body {
     background: linear-gradient(to bottom, #fff 0%,#888e94 100%);
 }
+
 
