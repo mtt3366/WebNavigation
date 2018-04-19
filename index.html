@@ -10,7 +10,11 @@
 <body>
     <div class="herder" ></div>
     <main>
-        <div  id="mainxxxx"></div>
+        <div  id="mainxxxx">
+            <!--<div class="kbd_wrapper">-->
+                <!--<kbd class="kbd">A</kbd>-->
+            <!--</div>-->
+        </div>
     </main>
     <div class="footer"></div>
     <script>
@@ -66,7 +70,10 @@
             index2 = 0;
 
             while (index2<row.length){
+                kbd_wrapper = document.createElement("div");
+                kbd_wrapper.className = 'kbd_wrapper';
                 kbdxxxx = document.createElement("kbd");
+                kbdxxxx.className = 'kbd';
                 kbdxxxx.textContent = row[index2];
 
                 //每一个kbd里面加入button
@@ -104,9 +111,10 @@
                     //熟悉原理:一变更就存档
 
                 };
-                kbdxxxx.appendChild(buttonxx);
 
-                divxxxx.appendChild(kbdxxxx);
+                kbdxxxx.appendChild(buttonxx);
+                kbd_wrapper.appendChild(kbdxxxx);
+                divxxxx.appendChild(kbd_wrapper);
                 index2++;
             }
             index++;

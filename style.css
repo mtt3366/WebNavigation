@@ -40,3 +40,36 @@ main{
 #mainxxxx>div:nth-child(3){
     margin-left: 4em;
 }
+/*美化按键*/
+/*{ background: linear-gradient(to bottom, #bfc3c5 0%,#888e94 100%);*/
+/*}*/
+.kbd{
+    margin: 0;
+    padding: 0;
+    border:0;
+    width: 65px;
+    height: 50px;
+    background: linear-gradient(to bottom, #fff 0%,#fff 70%,#f3f3f3 100%);
+    border-radius: 7px;
+    box-shadow: 0 3px 0 0 #D8DCDE;
+    color: #767D81;
+    font-family: Helvetical;
+    vertical-align: top;
+
+}
+.kbd_wrapper{
+    display: inline-block;
+    vertical-align: top;
+    /*这两句一定要搭配使用!!!!*/
+
+    width: 65px;
+    height: 53px;
+    /*border:1px solid #3C3C3D;*/
+    border-radius: 7px;
+    margin: 0 5px;
+    box-shadow: 0 3px 1px 0 #3C3C3D,0 -1px 1px 0 #3C3C3D,-1px 0 1px 0 #3C3C3D,1px 0 1px 0 #3C3C3D;
+    /*下,左右,上*/
+}
+#mainxxxx>div{
+    margin: 10px 0;
+}
