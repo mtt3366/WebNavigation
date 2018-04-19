@@ -32,6 +32,14 @@ kbd:hover>button{
 }
 main{
     text-align: center;
+
+    /*绝对居中父元素上的三行代码*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
 }
 /*mainxxx这个div居中*/
 #mainxxxx>div:nth-child(2){
@@ -86,9 +94,9 @@ main{
 }
 
 /*让html和body占满屏幕100%的方法*/
-html,body{
-    height: 100%;
-}
+/*方法一:!*html,body{*!*/
+    /*height: 100%;*/
+/*}*/
 body {
     background: linear-gradient(to bottom, #fff 0%,#888e94 100%);
 }
