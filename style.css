@@ -44,6 +44,7 @@ main{
 /*mainxxx这个div居中*/
 #mainxxxx>div:nth-child(2){
     margin-left: -30px;
+
 }
 #mainxxxx>div:nth-child(3){
     margin-left: -112px;
@@ -66,6 +67,7 @@ main{
     box-shadow: 0 5px 0 0 #D8DCDE;
     color: #767D81;
     font-family: Helvetical;
+
 
     vertical-align: top;
 
