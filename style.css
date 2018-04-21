@@ -29,7 +29,22 @@ kbd:hover>button{
 }
 #mainxxxx{
     display: inline-block;
+
+    padding: 20px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
 }
+
+body {
+    /*background: linear-gradient(to bottom, #fff 0%,#888e94 100%);*/
+    background: #ccc url("./wall.jpg") repeat center center scroll;
+
+    background-size: cover;
+    /*背景完全覆盖*/
+
+}
+
+
 main{
     text-align: center;
 
@@ -40,6 +55,10 @@ main{
     align-items: center;
 
     height: 100vh;
+
+    min-width: 800px;
+    /*设置最小宽度,防止变形*/
+
 }
 /*mainxxx这个div居中*/
 #mainxxxx>div:nth-child(2){
@@ -70,11 +89,11 @@ main{
 
 
     vertical-align: top;
-
-    /*用flex布局居中*/
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    /*用flex布局居中文字*/
+    /*display: inline-flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
 }
 .kbd_wrapper{
     display: inline-block;
@@ -99,8 +118,18 @@ main{
 /*方法一:!*html,body{*!*/
     /*height: 100%;*/
 /*}*/
-body {
-    background: linear-gradient(to bottom, #fff 0%,#888e94 100%);
+kbd img{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 7px;
+    bottom: 4px;
 }
+kbd .text{
+    position: absolute;
+    left: 7px;
+    top: 4px;
+}
+
 
 

@@ -30,28 +30,29 @@
         var hash = {
             'q':'qq.com',
             'w':'weibo.com',
-            'e':'ele.com',
-            'r':'renren.com',
-            'y':'renren.com',
-            'u':'renren.com',
-            'i':'renren.com',
-            'o':'renren.com',
-            'p':'renren.com',
-            'a':'renren.com',
-            's':'renren.com',
-            'd':'renren.com',
-            'f':'renren.com',
-            'g':'renren.com',
-            'h':'renren.com',
-            'j':'renren.com',
-            'k':'renren.com',
-            'l':'renren.com',
-            'z':'renren.com',
-            'x':'renren.com',
-            'c':'renren.com',
-            'v':'renren.com',
-            'b':'renren.com',
-            'n':'renren.com',
+            'e':'ele.me',
+            'r':'bilibili.com',
+            't':'taobao.com',
+            'y':undefined,
+            'u':'bilibili.com',
+            'i':'iciba.com',
+            'o':'bilibili.com',
+            'p':undefined,
+            'a':'aliyun.com',
+            's':'souhu.com',
+            'd':undefined,
+            'f':undefined,
+            'g':'google.com',
+            'h':undefined,
+            'j':undefined,
+            'k':undefined,
+            'l':'baidu.com',
+            'z':undefined,
+            'x':'xiedaimala.com',
+            'c':undefined,
+            'v':undefined,
+            'b':undefined,
+            'n':undefined,
             'm':undefined
         };
 
@@ -75,10 +76,24 @@
                 kbd_wrapper.className = 'kbd_wrapper';
                 kbdxxxx = document.createElement("kbd");
                 kbdxxxx.className = 'kbd';
-                kbdxxxx.textContent = row[index2];
+                span = document.createElement("span");
+                span.textContent = row[index2];
+                span.className = "text";
+                kbdxxxx.appendChild(span);
+
 
                 //每一个kbd里面加入button
                 buttonxx = document.createElement("button");
+                imgxxxx = document.createElement("img");
+                if(hash[row[index2]]){//判断这个是否存在
+                    imgxxxx.src = 'http://'+hash[row[index2]]+'/favicon.ico';
+                    //加http协议,不然会认为是路径
+                } else{//undefined
+                    //如果src为空,就会进入当前的网址,所以给他一个存在的图片
+                    imgxxxx.src = './point.png';
+                }
+
+
                 buttonxx.textContent = "编辑";
                 // 每一个button的id都是row[index2],即kbd里面的内容,以便区分
                 buttonxx.id = row[index2];
@@ -113,6 +128,7 @@
 
                 };
 
+                kbdxxxx.appendChild(imgxxxx);
                 kbdxxxx.appendChild(buttonxx);
                 kbd_wrapper.appendChild(kbdxxxx);
                 divxxxx.appendChild(kbd_wrapper);
