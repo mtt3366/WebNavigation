@@ -76,11 +76,11 @@
                 kbd_wrapper.className = 'kbd_wrapper';
                 kbdxxxx = document.createElement("kbd");
                 kbdxxxx.className = 'kbd';
+
                 span = document.createElement("span");
                 span.textContent = row[index2];
                 span.className = "text";
                 kbdxxxx.appendChild(span);
-
 
                 //每一个kbd里面加入button
                 buttonxx = document.createElement("button");
@@ -89,10 +89,14 @@
                     imgxxxx.src = 'http://'+hash[row[index2]]+'/favicon.ico';
                     //加http协议,不然会认为是路径
                 } else{//undefined
-                    //如果src为空,就会进入当前的网址,所以给他一个存在的图片
+                    //如果src为空,就会进入当前的网址,导致图片显现不出来,所以给他一个存在的图片
                     imgxxxx.src = './point.png';
                 }
-
+                imgxxxx.onerror = function (ev) {
+                    //onerror事件,监听img的get请求错误事件
+                    ev.target.src = './point.png';
+                    //把没有请求到的错误事件的src定为那个点
+                };
 
                 buttonxx.textContent = "编辑";
                 // 每一个button的id都是row[index2],即kbd里面的内容,以便区分
@@ -116,6 +120,15 @@
 
                     hash[key] = x;//赋值
 
+                    button2 = jfglkhj.target;
+                    img2 = button2.previousSibling;
+
+                    img2.src = 'http://'+x+'/favicon.ico';
+                    img2.onerror = function (ev) {
+                        ev.target.src = './point.png';
+                    };
+
+
                     // 问题:刷新之后编辑的网址没有了
                     // 解决方法:使用localStorage,只要变就备份,只要刷新就覆盖
                     //如果hash变更,只要编辑了,我就存
@@ -125,6 +138,8 @@
                     //每一次编辑,就把新的hash存到  浏览器里
                     //然后把这个浏览器里的hash覆盖原来的就可以了
                     //熟悉原理:一变更就存档
+
+                    //每次点击编辑后,就把图标换一下
 
                 };
 
