@@ -31,7 +31,7 @@ kbd:hover>button{
     display: inline-block;
 
     padding: 20px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.7);
     border-radius: 10px;
 }
 
@@ -83,7 +83,7 @@ main{
     border-radius: 7px;
 
     /*下方阴影,box-shadow5个最常用属性,分别是左偏移,右偏移,模糊,扩张,颜色*/
-    box-shadow: 0 5px 0 0 #D8DCDE;
+    box-shadow: 0 5px 0 0 #767d81;
     color: #767D81;
     font-family: Helvetical;
 
