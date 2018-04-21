@@ -43,9 +43,8 @@ body {
     /*背景完全覆盖*/
 
 }
-
-
-main{
+main {
+    margin: 0;
     text-align: center;
 
     /*绝对居中父元素上的三行代码*/
