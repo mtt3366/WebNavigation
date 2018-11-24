@@ -19,7 +19,26 @@
     searchInput.addEventListener('blur', (e) => {
         // e.target
         searchInput.removeAttribute("alreadyFocus")
+        console.log(searchInput.value)
     })
+
+    var buttonArr = document.querySelectorAll('.search .button')
+    
+    buttonArr.forEach(function(button){
+        button.addEventListener('click',(e)=>{
+            let inputValue = searchInput.value
+            switch (e.currentTarget.getAttribute('searchEngine')){
+                case 'baidu': window.open(`https://www.baidu.com/s?wd=${inputValue}`) 
+                break;
+                case "google":window.open(`https://www.google.com/search?q=${inputValue}`) 
+                break;
+                case "bing":window.open(`https://www.bing.com/search?q=${inputValue}`) 
+                break;
+                default:;
+            }
+        },true)
+    })
+
 
     //4. 优化代码的函数
     function getFromLocalStorage(name) {
@@ -184,7 +203,7 @@
         document.onkeypress = function (sjdhfakdhjlsdka) {
             let searchInput = document.querySelector('#searchInput')
             if (!searchInput.getAttribute('alreadyFocus')) {//如果input没有聚焦
-                
+
                 //sjdhfakdhjlsdka这个参数  包含你想要知道的所有信息,是一个hash
                 var key = sjdhfakdhjlsdka['key'];//得到用户的键
                 var website = hash[key];//获取网站地址
