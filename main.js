@@ -23,20 +23,20 @@
     })
 
     var buttonArr = document.querySelectorAll('.search .button')
-    
-    buttonArr.forEach(function(button){
-        button.addEventListener('click',(e)=>{
+
+    buttonArr.forEach(function (button) {
+        button.addEventListener('click', (e) => {
             let inputValue = searchInput.value
-            switch (e.currentTarget.getAttribute('searchEngine')){
-                case 'baidu': window.open(`https://www.baidu.com/s?wd=${inputValue}`) 
-                break;
-                case "google":window.open(`https://www.google.com/search?q=${inputValue}`) 
-                break;
-                case "bing":window.open(`https://www.bing.com/search?q=${inputValue}`) 
-                break;
-                default:;
+            switch (e.currentTarget.getAttribute('searchEngine')) {
+                case 'baidu': window.open(`https://www.baidu.com/s?wd=${inputValue}`)
+                    break;
+                case "google": window.open(`https://www.google.com/search?q=${inputValue}`)
+                    break;
+                case "bing": window.open(`https://www.bing.com/search?q=${inputValue}`)
+                    break;
+                default: ;
             }
-        },true)
+        }, true)
     })
 
 
@@ -63,7 +63,7 @@
         // 每一个button的id都是row[index2],即kbd里面的内容,以便区分
         button.id = id;
         //添加button点击事件
-        button.onclick = function (jfglkhj) {
+        button.addEventListener('click', function (jfglkhj) {
             //☆☆☆☆这里不能用this,也不能用buttonxx,因为buttonxx只是一个容器,每一次循环,里面放的东西都不一样
             // 最后他里面放的东西是最后那个createElement("button").所以不行
             //例如
@@ -101,7 +101,12 @@
             //熟悉原理:一变更就存档
 
             //每次点击编辑后,就把图标换一下
-        };
+
+            
+
+            //阻止事件冒泡
+            event.stopPropagation();
+        })
         return button;
     }
 
@@ -136,11 +141,11 @@
             'e': 'ele.me',
             'r': 'bilibili.com',
             't': 'taobao.com',
-            'y': undefined,
+            'y': 'bilibili.com',
             'u': 'bilibili.com',
             'i': 'iciba.com',
             'o': 'bilibili.com',
-            'p': undefined,
+            'p': 'bilibili.com',
             'a': 'aliyun.com',
             's': 'segmentfault.com',
             'd': undefined,
@@ -185,6 +190,24 @@
                 var img = createImg(hash[row[index2]]);
                 var kbd = tag("kbd");
                 kbd.className = 'kbd';
+
+                if (hash[row[index2]] === undefined) {
+                    kbd.setAttribute('title', '未设置网站导航')
+                } else {
+                    kbd.setAttribute('title', hash[row[index2]])
+                }
+
+                kbd.onclick = function (e) {
+
+                    var website = e.currentTarget.getAttribute('title');
+                    if (website === '未设置网站导航') {
+                        alert('请编辑此按键的网站再跳转')
+                    } else {
+                        window.open('http://' + website, "_blank");
+                    }
+
+                }
+
                 var kbd_wrapper = tag("div");
                 kbd_wrapper.className = 'kbd_wrapper';
 
@@ -211,8 +234,11 @@
                 // location.href = 'http://'+website;//将键变成新的网站的地址
                 //location.href当前地址栏.地址
                 //
-
-                window.open('http://' + website, "_blank");
+                if (website === undefined) {
+                    alert('请编辑此按键的网站再跳转')
+                } else {
+                    window.open('http://' + website, "_blank");
+                }
                 //window.open  窗口.打开  "_blank"新窗口打开.
             }
 
