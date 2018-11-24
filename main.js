@@ -102,7 +102,7 @@
 
             //每次点击编辑后,就把图标换一下
 
-            
+
 
             //阻止事件冒泡
             event.stopPropagation();
@@ -141,15 +141,15 @@
             'e': 'ele.me',
             'r': 'bilibili.com',
             't': 'taobao.com',
-            'y': 'bilibili.com',
-            'u': 'bilibili.com',
+            'y': 'juejin.im',
+            'u': 'blog.csdn.net',
             'i': 'iciba.com',
-            'o': 'bilibili.com',
+            'o': 'bing.com',
             'p': 'bilibili.com',
             'a': 'aliyun.com',
             's': 'segmentfault.com',
-            'd': undefined,
-            'f': undefined,
+            'd': 'www.sohu.com/',
+            'f': 'www.qq.com',
             'g': 'google.com',
             'h': undefined,
             'j': 'jianshu.com',

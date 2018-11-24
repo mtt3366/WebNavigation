@@ -171,6 +171,25 @@ kbd .text{
 .search .button:hover{
     background: rgb(206, 206, 206);
 }
+
+.tips{
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding:20px;
+    padding-top: 10px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 10px;
+
+}
+.tips .title{
+    text-align: center;
+    font-weight: 600;
+    font-size: 21px;
+    margin-bottom: 15px;
+}
 @keyframes shake{
     10%, 90% {
         transform: translate3d(-1px, 0, 0);
@@ -186,5 +205,4 @@ kbd .text{
         transform: translate3d(4px, 0, 0);
     }
 }
-
 
