@@ -11,33 +11,8 @@
     listenTiUser(hash);
 
     //3.2 百度和谷歌的搜索框
-
-    var searchInput = document.querySelector('#searchInput')
-    searchInput.addEventListener('focus', (e) => {
-        searchInput.setAttribute("alreadyFocus", true)
-    })
-    searchInput.addEventListener('blur', (e) => {
-        // e.target
-        searchInput.removeAttribute("alreadyFocus")
-        console.log(searchInput.value)
-    })
-
-    var buttonArr = document.querySelectorAll('.search .button')
-
-    buttonArr.forEach(function (button) {
-        button.addEventListener('click', (e) => {
-            let inputValue = searchInput.value
-            switch (e.currentTarget.getAttribute('searchEngine')) {
-                case 'baidu': window.open(`https://www.baidu.com/s?wd=${inputValue}`)
-                    break;
-                case "google": window.open(`https://www.google.com/search?q=${inputValue}`)
-                    break;
-                case "bing": window.open(`https://www.bing.com/search?q=${inputValue}`)
-                    break;
-                default: ;
-            }
-        }, true)
-    })
+    createSearch()
+    
 
 
     //4. 优化代码的函数
@@ -148,7 +123,7 @@
             'p': 'bilibili.com',
             'a': 'aliyun.com',
             's': 'segmentfault.com',
-            'd': 'www.sohu.com/',
+            'd': 'www.sohu.com',
             'f': 'www.qq.com',
             'g': 'google.com',
             'h': undefined,
@@ -174,6 +149,7 @@
             'hash': hash
         }
     }
+
 
     function generaetKeyboard(keys, hash) {
         //遍历keys,生成kbd标签
@@ -241,7 +217,35 @@
                 }
                 //window.open  窗口.打开  "_blank"新窗口打开.
             }
-
         };
+    }
+
+    function createSearch(){
+        var searchInput = document.querySelector('#searchInput')
+    searchInput.addEventListener('focus', (e) => {
+        searchInput.setAttribute("alreadyFocus", true)
+    })
+    searchInput.addEventListener('blur', (e) => {
+        // e.target
+        searchInput.removeAttribute("alreadyFocus")
+        console.log(searchInput.value)
+    })
+
+    var buttonArr = document.querySelectorAll('.search .button')
+
+    buttonArr.forEach(function (button) {
+        button.addEventListener('click', (e) => {
+            let inputValue = searchInput.value
+            switch (e.currentTarget.getAttribute('searchEngine')) {
+                case 'baidu': window.open(`https://www.baidu.com/s?wd=${inputValue}`)
+                    break;
+                case "google": window.open(`https://www.google.com/search?q=${inputValue}`)
+                    break;
+                case "bing": window.open(`https://www.bing.com/search?q=${inputValue}`)
+                    break;
+                default: ;
+            }
+        }, true)
+    })
     }
 }()
