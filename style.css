@@ -139,6 +139,33 @@ kbd .text{
 .kbd_wrapper:hover {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 }
+
+.search{
+    text-align: center;
+    position: fixed;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 500px;
+}
+.search #searchInput{
+    border: 0;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid #ccc;
+    outline: none;   
+    width: 250px;
+}
+.search .button{
+    display: inline-block;
+    background: #fff;
+    border-radius: 5px;
+    border: 2px solid #767D81;
+    color: #767D81;
+    padding: 5px 10px;
+    cursor: pointer;
+    user-select:none;
+}
 @keyframes shake{
     10%, 90% {
         transform: translate3d(-1px, 0, 0);

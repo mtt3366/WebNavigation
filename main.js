@@ -11,7 +11,16 @@
     listenTiUser(hash);
 
     //3.2 百度和谷歌的搜索框
-    
+
+    var searchInput = document.querySelector('#searchInput')
+    searchInput.addEventListener('focus', (e) => {
+        searchInput.setAttribute("alreadyFocus", true)
+    })
+    searchInput.addEventListener('blur', (e) => {
+        // e.target
+        searchInput.removeAttribute("alreadyFocus")
+    })
+
     //4. 优化代码的函数
     function getFromLocalStorage(name) {
         return JSON.parse(localStorage.getItem(name) || 'null');
@@ -173,17 +182,20 @@
 
     function listenTiUser(hash) {
         document.onkeypress = function (sjdhfakdhjlsdka) {
+            let searchInput = document.querySelector('#searchInput')
+            if (!searchInput.getAttribute('alreadyFocus')) {//如果input没有聚焦
+                
+                //sjdhfakdhjlsdka这个参数  包含你想要知道的所有信息,是一个hash
+                var key = sjdhfakdhjlsdka['key'];//得到用户的键
+                var website = hash[key];//获取网站地址
 
-            //sjdhfakdhjlsdka这个参数  包含你想要知道的所有信息,是一个hash
-            var key = sjdhfakdhjlsdka['key'];//得到用户的键
-            var website = hash[key];//获取网站地址
+                // location.href = 'http://'+website;//将键变成新的网站的地址
+                //location.href当前地址栏.地址
+                //
 
-            // location.href = 'http://'+website;//将键变成新的网站的地址
-            //location.href当前地址栏.地址
-            //
-
-            window.open('http://' + website, "_blank");
-            //window.open  窗口.打开  "_blank"新窗口打开.
+                window.open('http://' + website, "_blank");
+                //window.open  窗口.打开  "_blank"新窗口打开.
+            }
 
         };
     }
